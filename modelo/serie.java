@@ -39,6 +39,13 @@ public class serie extends titulo {
         setDuracionEnMinutosPorEpisodio(duracionEnMinutosPorEpisodio);
     }
 
+    public serie(String nombre, int temporadas, int episodiosPorTemporada, int duracionEnMinutosPorEpisodio){
+        setNombre(nombre);
+        setTemporadas(temporadas);
+        setEpisodiosPorTemporada(episodiosPorTemporada);
+        setDuracionEnMinutosPorEpisodio(duracionEnMinutosPorEpisodio);
+    }
+
     @Override
     public void mostrarFichaTecnica(){
         System.out.println("\n**** Ficha Técnica ****");
@@ -49,5 +56,11 @@ public class serie extends titulo {
         System.out.println("Duración por episodio: " + getDuracionEnMinutosPorEpisodio() + " minutos");
         System.out.println("Duración: " + getDuracionEnMinutos() + " minutos");
         System.out.println("Calificación: " + getCalificacion() + "/5.0");
+    }
+
+    public void calcularTiempoADedicar(int horasPorDia){
+        double diasViendoParaTerminarLaSerie = (getDuracionEnMinutos() / 60) / horasPorDia;
+        System.out.println("\n**** Calculadora ****");
+        System.out.println("Viendo " + horasPorDia + " horas por dia de la serie " + getNombre() + " tardarias " + diasViendoParaTerminarLaSerie + " días en ver toda la serie.");
     }
 }

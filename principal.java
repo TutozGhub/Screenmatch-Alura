@@ -12,6 +12,7 @@ public class principal {
                     \nBienvenido/a a Screenmatch
                     1. Añadir una nueva pelicula al catalogo
                     2. Añadir una nueva serie al catalogo
+                    3. Calcular cuanto tiempo me tomara ver una serie
                     """;
             System.out.println(menu);
             opcion = teclado.nextInt();
@@ -22,6 +23,9 @@ public class principal {
             double calificacion;
             String director;
             int fechaLanzamiento;
+            int temporadas;
+            int episodiosPorTemporada;
+            int duracionEnMinutosPorEpisodio;
             
             switch (opcion) {
                 case 1:
@@ -46,13 +50,13 @@ public class principal {
                     System.out.println("Ingrese nombre de la serie");
                     nombre = teclado.nextLine();
                     System.out.println("Temporadas");
-                    int temporadas = teclado.nextInt();
+                    temporadas = teclado.nextInt();
                     teclado.nextLine();
                     System.out.println("Episodios por temporada");
-                    int episodiosPorTemporada = teclado.nextInt();
+                    episodiosPorTemporada = teclado.nextInt();
                     teclado.nextLine();
                     System.out.println("Duracion en minutos por episodio");
-                    int duracionEnMinutosPorEpisodio = teclado.nextInt();
+                    duracionEnMinutosPorEpisodio = teclado.nextInt();
                     teclado.nextLine();
                     System.out.println("Calificación");
                     calificacion = teclado.nextDouble();
@@ -64,6 +68,26 @@ public class principal {
                     serie objSerie = new serie(nombre, fechaLanzamiento, calificacion, temporadas, episodiosPorTemporada, duracionEnMinutosPorEpisodio);
                     objSerie.mostrarFichaTecnica();
                     break;
+                case 3:
+                    System.out.println("Ingrese nombre de la serie");
+                    nombre = teclado.nextLine();
+                    System.out.println("Temporadas");
+                    temporadas = teclado.nextInt();
+                    teclado.nextLine();
+                    System.out.println("Episodios por temporada");
+                    episodiosPorTemporada = teclado.nextInt();
+                    teclado.nextLine();
+                    System.out.println("Duracion en minutos por episodio");
+                    duracionEnMinutosPorEpisodio = teclado.nextInt();
+                    teclado.nextLine();
+                    System.out.println("Horas por día que quieres dedicar a ver la serie");
+                    int horasPorDia = teclado.nextInt();
+                    teclado.nextLine();
+                    
+                    serie calculadora = new serie(nombre, temporadas, episodiosPorTemporada, duracionEnMinutosPorEpisodio);
+                    calculadora.calcularTiempoADedicar(horasPorDia);
+                    break;
+
                 default:
                 System.out.println("Opción no valida");
                     break;
